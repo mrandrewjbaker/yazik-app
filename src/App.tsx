@@ -3,11 +3,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.scss';
 import { NavBar } from './components/NavBar/NavBar';
 import { RouterContainer } from './components/RouterContainer/RouterContainer';
-import { MainViewFrame } from './views/MainViewFrame/MainViewFrame';
+import { MainViewFrame } from './components/MainViewFrame/MainViewFrame';
 
 function App() {
   return (
     <div className="App">
+      <NavBar />
       <RouterContainer>
         <BrowserRouter>
           <Routes>
@@ -15,7 +16,6 @@ function App() {
           </Routes>
         </BrowserRouter>
       </RouterContainer>
-      <NavBar />
 
     </div>
   );
