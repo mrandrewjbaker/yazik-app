@@ -4,18 +4,18 @@ import './App.scss';
 import { NavBar } from './components/NavBar/NavBar';
 import { RouterContainer } from './components/RouterContainer/RouterContainer';
 import { MainViewFrame } from './components/MainViewFrame/MainViewFrame';
+import { PickALanguage } from './views/pickALanguage/PickALanguage';
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <RouterContainer>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<MainViewFrame />} />
-          </Routes>
-        </BrowserRouter>
-      </RouterContainer>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<PickALanguage />} />
+
+        </Routes>
+      </BrowserRouter>
 
     </div>
   );

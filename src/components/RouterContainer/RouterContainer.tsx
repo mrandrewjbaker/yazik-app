@@ -3,9 +3,11 @@ import { useAppSelector } from '../../app/hooks';
 
 import styles from './RouterContainer.module.scss';
 import { select_SideMenu } from '../SideMenu/SideMenu.slice';
+import { JsxElement } from 'typescript';
+import { Outlet } from 'react-router';
 
 interface IRouterContainerProps {
-  children?: ReactNode;
+  children?: any;
 }
 
 export const RouterContainer = (props: IRouterContainerProps) => {
