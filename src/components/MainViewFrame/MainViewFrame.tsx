@@ -6,11 +6,9 @@ import styles from './MainViewFrame.module.scss';
 export const MainViewFrame = () => {
   return (
   <div className={styles.MainViewFrame}>
-    <BrowserRouter>
     <Routes>
-      <Route path="/" element={<PickALanguage />} />
+      <Route path="/pick" element={<PickALanguage />} />
     </Routes>
-  </BrowserRouter>
   </div>
   )
 }

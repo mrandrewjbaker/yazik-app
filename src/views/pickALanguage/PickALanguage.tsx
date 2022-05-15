@@ -1,14 +1,15 @@
 import { useState } from "react"
+import style from './pickALanguage.module.scss'
+import { languageListOptions } from "./pickALanguage.data";
+
 
 export const PickALanguage = () => {
   const [languageList, setLanguageList] = useState<string[]>();
+  setLanguageList(languageListOptions)
 
   return (
-    <div>
-      <h1>PickALanguage</h1>
-      <ul>
-        <li>Hello</li>
-      </ul>
+    <div className={style.PickALanguage}>
+      <h1>Pick A Language</h1>
     </div>
   )
 }

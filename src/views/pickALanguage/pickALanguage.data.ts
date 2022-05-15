@@ -1,4 +1,4 @@
-export const languageList = [
+export const languageListOptions = [
   'English',
   'German',
   'French',

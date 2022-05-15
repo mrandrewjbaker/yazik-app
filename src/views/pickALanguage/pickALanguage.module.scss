@@ -1,0 +1,27 @@
+.PickALanguage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #933434;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+  padding: 1rem;
+
+  .LanguagePickerBlocks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    .LanguagePickerBlock {
+      height: 2rem;
+      width: 5rem;
+      background-color: rgb(36, 103, 246);
+    }
+  }
+}
