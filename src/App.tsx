@@ -12,7 +12,7 @@ function App() {
       <NavBar />
       <BrowserRouter>
         <Routes>
-          <Route index element={<PickALanguage />} />
+          {/* <Route index element={<PickALanguage />} /> */}
 
         </Routes>
       </BrowserRouter>

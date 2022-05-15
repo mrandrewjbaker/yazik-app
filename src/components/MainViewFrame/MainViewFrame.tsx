@@ -6,7 +6,7 @@ export const MainViewFrame = () => {
   return (
   <div className={styles.MainViewFrame}>
     <Routes>
-      <Route path="/pick" element={<PickALanguage />} />
+      {/* <Route path="/pick" element={<PickALanguage />} /> */}
       
     </Routes>
   </div>
