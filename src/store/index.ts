@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import SideMenuReducers from '../components/SideMenu/SideMenu.slice';
+import pickALanguageReducers from '../views/pickALanguage/pickALanguage.slice';
 
 const store = configureStore({
   reducer: {
     SideMenu: SideMenuReducers,
+    pickALanguage: pickALanguageReducers,
     
   },
 })

@@ -1,0 +1,35 @@
+.LanguageLesson {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  .LanguageLesson_contextualImage___container {
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+  }
+
+  .LanguageLesson_blurb___container {
+    display: flex;
+    flex-direction: column;
+    height: 30%;
+  }
+
+  .LanguageLesson_next___container {
+    display: flex;
+    flex-direction: column;
+    height: 10%;
+    align-items: center;
+    justify-content: center;
+
+    .LanguageLesson_next___button {
+      background-color: rgb(1, 196, 105);
+      border: 0;
+      padding: .5rem 2rem .5rem 2rem;
+      border-radius: 0.35rem;
+      outline: none;
+    }
+  }
+}

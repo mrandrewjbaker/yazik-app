@@ -1,6 +1,7 @@
 
 import { MouseEventHandler, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../app/hooks';
 
 import { languageListOptions } from './pickALanguage.data';
 import style from './pickALanguage.module.scss';
@@ -10,13 +11,18 @@ import frenchIcon from '../../assets/images/languages/french.png';
 import germanIcon from '../../assets/images/languages/german.png';
 import russianIcon from '../../assets/images/languages/russian.png';
 import mandarinIcon from '../../assets/images/languages/mandarin.png';
+import { PickALanguage_SetActiveLearningLanguage, PickALanguage_SetActiveNativeLanguage } from './pickALanguage.slice';
 
 export const PickALanguage = () => {
+  const dispatch = useAppDispatch();
+
   let navigate = useNavigate();
   const [languagesList, setLanguagesList] = useState<string[]>([]);
 
   const handleSelectLanguage = (language: string) => {
-    navigate(`/learn/${language.toLowerCase()}`);
+    dispatch(PickALanguage_SetActiveLearningLanguage(language.toLowerCase()));
+    dispatch(PickALanguage_SetActiveNativeLanguage('english'));
+    navigate(`/language/${language.toLowerCase()}`);
   }
 
   const determineLanguageIcon = (language: string) => {

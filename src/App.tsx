@@ -4,7 +4,8 @@ import './App.scss';
 import { NavBar } from './components/NavBar/NavBar';
 import { RouterContainer } from './components/RouterContainer/RouterContainer';
 import { PickALanguage } from './views/pickALanguage/PickALanguage';
-import { LearnLanguage } from './views/learnLanguage/LearnLanguage';
+import { LanguageDashboard } from './views/languageDashboard/LanguageDashboard';
+import { LanguageLesson } from './views/languageLesson/LanguageLesson';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/pick" element={<PickALanguage />} />
-            <Route path="/learn" element={<LearnLanguage />} />
+            <Route path="/language/lesson/:topic" element={<LanguageLesson />} />
+            <Route path="/language/:language" element={<LanguageDashboard />} />
 
           </Routes>
         </BrowserRouter>
