@@ -9,7 +9,7 @@ export const LanguageLesson = () => {
 
       </div>
       <div className={styles.LanguageLesson_blurb___container}>
-        {blurb}
+        <span className={styles.LanguageLesson_blurb}>{blurb}</span>
       </div>
       <div className={styles.LanguageLesson_next___container}>
         <button className={styles.LanguageLesson_next___button}>Next</button>
