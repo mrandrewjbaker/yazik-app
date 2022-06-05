@@ -28,7 +28,7 @@ const PickALanguageSlice = createSlice({
       state.value.activeNativeLanguage = action.payload;
     }
   },
-})
+});
 
 
 export const { PickALanguage_SetActiveLearningLanguage, PickALanguage_SetActiveNativeLanguage } = PickALanguageSlice.actions
