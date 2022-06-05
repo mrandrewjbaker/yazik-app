@@ -1,5 +1,4 @@
 
-import { MouseEventHandler, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../app/hooks';
 
@@ -15,9 +14,7 @@ import { PickALanguage_SetActiveLearningLanguage, PickALanguage_SetActiveNativeL
 
 export const PickALanguage = () => {
   const dispatch = useAppDispatch();
-
-  let navigate = useNavigate();
-  const [languagesList, setLanguagesList] = useState<string[]>([]);
+  const navigate = useNavigate();
 
   const handleSelectLanguage = (language: string) => {
     dispatch(PickALanguage_SetActiveLearningLanguage(language.toLowerCase()));
@@ -28,24 +25,20 @@ export const PickALanguage = () => {
   const determineLanguageIcon = (language: string) => {
     console.log(language);
     switch (language) {
-      case 'English':
+      case 'english':
         return englishIcon;
-      case 'French':
+      case 'french':
         return frenchIcon;
-      case 'German':
+      case 'german':
         return germanIcon;
-      case 'Russian':
+      case 'russian':
         return russianIcon;
-      case 'Mandarin':
+      case 'mandarin':
         return mandarinIcon;
       default:
         return pickALanguageIcon;
     }
   }
-
-  useEffect(() => {
-    setLanguagesList(languageListOptions);
-  }, []);
 
   return (
     <div className={style.PickALanguage}>
@@ -55,9 +48,9 @@ export const PickALanguage = () => {
       <h1 className={style.LanguagePickerHeader}>Pick a Language</h1>
       <ul className={style.LanguagePickerBlocks}>
       {
-        languagesList.map((language) => (
-          <li key={language} className={style.LanguagePickerBlock} onClick={() => handleSelectLanguage(language)}>
-            <img src={determineLanguageIcon(language)} /> <p>{language}</p>
+        languageListOptions.map((language) => (
+          <li key={language.value} className={style.LanguagePickerBlock} onClick={() => handleSelectLanguage(language.value)}>
+            <img src={determineLanguageIcon(language.value)} /> <p>{language.name}</p>
           </li>
         ))
       }

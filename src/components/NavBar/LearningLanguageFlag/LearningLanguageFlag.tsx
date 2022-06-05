@@ -7,6 +7,7 @@ import mandarinFlag from '../../../assets/images/languages/mandarin.png';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { useEffect, useState } from 'react';
 import styles from './learningLanguageFlag.module.scss';
+import { QuickPickLanguage } from './QuickPickLanguage/QuickPickLanguage';
 
 
 export const LearningLanguageFlag = () => {
@@ -14,6 +15,7 @@ export const LearningLanguageFlag = () => {
   const pickALanguageState = useAppSelector(state => state.pickALanguage);
   const [activeLearningLanguage, setActiveLearningLanguage] = useState<string | null>(null);
   const [activeNativeLanguage, setActiveNativeLanguage] = useState<string | null>(null);
+  const [quickPickLanguageOpen, setQuickPickLanguageOpen] = useState<boolean>(false);
 
   useEffect(() => {
     setActiveLearningLanguage(pickALanguageState.value.activeLearningLanguage);
@@ -37,11 +39,21 @@ export const LearningLanguageFlag = () => {
     }
   }
 
+  const toggleQuickPickLanguage = () => {
+    console.log('clicked toggleQuickPickLanguage');
+    setQuickPickLanguageOpen(!quickPickLanguageOpen);
+  }
+
   return (
     <div className={styles.LearningLanguageFlag}>
       <div className={styles.LearningLanguageFlag_iconContainer}>
-        <img className={styles.LearningLanguageFlag_icon } src={determineLearningLanguageFlag()} />
+        <img onClick={() => toggleQuickPickLanguage()} className={styles.LearningLanguageFlag_icon } src={determineLearningLanguageFlag()} />
       </div>
+      {
+        quickPickLanguageOpen && (
+          <QuickPickLanguage /> 
+        )
+      }
     </div>
   )
 }

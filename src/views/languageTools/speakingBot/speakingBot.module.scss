@@ -1,0 +1,77 @@
+.SpeakingBot {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .SpeakingBot_conversationLog___container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+
+    .SpeakingBot_conversationLog {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+
+      .SpeakingBot_conversationLog___entryContainer {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 3rem;
+        margin-bottom: 1.5rem;
+
+        .SpeakingBot_conversationLog___entryBubble {
+          height: 100%;
+          width: 75%;
+          display: flex;
+          box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px 0px, rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.07) 0px 4px 8px 0px, rgba(0, 0, 0, 0.07) 0px 8px 16px 0px, rgba(0, 0, 0, 0.07) 0px 16px 32px 0px, rgba(0, 0, 0, 0.07) 0px 32px 64px 0px;
+
+          .SpeakingBot_conversationLog___entryText {
+            align-self: center;
+            margin-left: 10px;
+          }
+        }
+
+        &:nth-child(even) {
+          width: calc(100%);
+
+
+          .SpeakingBot_conversationLog___entryBubble {
+            margin-right: 10px;
+            margin-left: auto;
+            background-color: #2e66de;
+            border-radius: 1rem 0rem 1rem 1rem;
+          }
+        }
+
+        &:nth-child(odd) {
+          width: calc(100%);
+
+          .SpeakingBot_conversationLog___entryBubble {
+            margin-left: 10px;
+            margin-right: auto;
+            background-color: #108b64;
+            border-radius: 0 1rem 1rem 1rem;
+
+          }
+        }
+
+
+      }
+    }
+  }
+
+  .SpeakingBot_input___container {
+    display: flex;
+    flex-direction: column;
+    height: 3rem;
+    width: 100%;
+
+    .SpeakingBot_input {
+      height: 100%;
+    }
+  }
+}

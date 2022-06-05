@@ -1,0 +1,53 @@
+.QuickPickLanguage {
+  display: flex;
+  height: auto;
+  padding-bottom: 1rem;
+  width: 20rem;
+  margin-left: 12%;
+  background-color: #e7e7e7;
+  z-index: 100;
+  position: absolute;
+  border-radius: 1rem;
+
+  .QuickPickLanguage_list {
+    text-decoration: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    .QuickPickLanguage_listItem {
+      width: 100%;
+      text-align: left;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+
+      &:nth-of-type(odd) {
+        border-bottom: 1px solid #cccccc;
+      }
+
+      &:nth-of-type(even) {
+        border-bottom: 1px solid #cccccc;
+      }
+
+      &:hover {
+        background-color: #d3d3d3;
+        &:first-of-type {
+          border-top-left-radius: 1rem;
+          border-top-right-radius: 1rem;
+        }
+      }
+
+
+      .QuickPickLanguage_listItem_icon {
+        width: 2rem;
+        height: 2rem;
+        margin-left: 2%;
+        margin-right: 2%;
+        border: 2px solid #323232;
+        border-radius: 50%;
+      }
+    }
+  }
+}
