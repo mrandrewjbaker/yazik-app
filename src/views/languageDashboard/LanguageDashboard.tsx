@@ -1,10 +1,12 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import styles from './languageDashboard.module.scss';
 
 export const LanguageDashboard = () => {
   let navigate = useNavigate();
+  const [languageTopics, setLanguageTopics] = useState<string[]>([]);
 
-  const handleClickLessonSection = (topic: string) => {
+  const handleClickLessonTopic = (topic: string) => {
     navigate(`/language/lesson/${topic}`);
   };
 
@@ -12,25 +14,17 @@ export const LanguageDashboard = () => {
     navigate(`/language/tool/${tool}`);
   };
 
+  useEffect(() => {
+    console.log('LanguageDashboard');
+  }, [])
+
   return (
     <div className={styles.LanguageDashboard} >
       <div className={styles.LanguageDashboard_lessonSectionBlocks}>
         <h2>Lessons</h2>
-        <div className={styles.LanguageDashboard_lessonSectionBlock} onClick={() => handleClickLessonSection('Welcome')}>
+        
+        <div className={styles.LanguageDashboard_lessonSectionBlock} onClick={() => handleClickLessonTopic('Welcome')}>
           <span className={styles.LanguageDashboard_lessonSection___title}>Welcome</span>
-        </div>
-
-        <div className={styles.LanguageDashboard_lessonSectionBlock}>
-          <span className={styles.LanguageDashboard_lessonSection___title}>Let's go to Grandma's</span>
-        </div>
-
-        <div className={styles.LanguageDashboard_lessonSectionBlock}>
-          <span className={styles.LanguageDashboard_lessonSection___title}>Vocabulary</span>
-        </div>
-
-        <h2>Tools</h2>
-        <div className={styles.LanguageDashboard_lessonSectionBlock}>
-          <span className={styles.LanguageDashboard_lessonSection___title} onClick={() => handleClickTool('conversationBot')}>Conversation Bot</span>
         </div>
       </div>
     </div>

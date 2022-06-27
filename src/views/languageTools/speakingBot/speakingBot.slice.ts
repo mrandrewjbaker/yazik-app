@@ -1,14 +1,29 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getInitialGreeting } from "./speakingBot.api";
+import { interactInitialConversation, interactConversationReply } from "./speakingBot.api";
 
-import { speakingBotInitialState } from "./speakingBotTypes";
+import { IConversationLogItem, ISpeakingBotState } from "./speakingBotTypes";
 
+const speakingBotInitialState: ISpeakingBotState = {
+  value: {
+    conversationLog: [],
+    conversationUserReplyOptions: [],
+  },
+  status: 'idle',
+};
 
-export const getInitialGreetingAsync = createAsyncThunk(
-  'speakingBot/getInitialGreeting',
-  async (language: string) => {
-    const response = await getInitialGreeting(language);
+export const interactInitialConversationAsync = createAsyncThunk(
+  'speakingBot/interactInitialConversation',
+  async () => {
+    const response = await interactInitialConversation();
     console.log(response)
+    return response;
+  },
+);
+
+export const interactConversationReplyAsync = createAsyncThunk(
+  'speakingBot/interactConversationReply',
+  async (conversationLog: IConversationLogItem[]) => {
+    const response = await interactConversationReply(conversationLog);
     return response;
   },
 );
@@ -22,22 +37,54 @@ export const speakingBotSlice = createSlice({
       state.status = 'idle';
       return newState
     },
+    pushUserReply: (state, action) => {
+      const newState = state;
+      newState.value.conversationLog.push(action.payload);
+      return newState
+    }
   },
   extraReducers: (builder) => {
     builder
-    .addCase(getInitialGreetingAsync.pending, (state, action) => {
+    .addCase(interactInitialConversationAsync.pending, (state, action) => {
       const newState = state;
       newState.status = 'pending';
       return newState
     })
-    .addCase(getInitialGreetingAsync.fulfilled, (state, action) => {
+    .addCase(interactInitialConversationAsync.fulfilled, (state, action) => {
       const newState = state;
-      console.log(action.payload);
-      newState.value.initialGreeting = action.payload;
+      const newConversationEntry = {
+        sender: action.payload.sender,
+        message: action.payload.message,
+      };
+      const newConversationUserReplyOptions = action.payload.userReplyOptions;
+      newState.value.conversationLog = [newConversationEntry];
+      newState.value.conversationUserReplyOptions = newConversationUserReplyOptions;
       newState.status = 'fulfilled';
       return newState
     })
-    .addCase(getInitialGreetingAsync.rejected, (state, action) => {
+    .addCase(interactInitialConversationAsync.rejected, (state, action) => {
+      const newState = state;
+      newState.status = 'failed';
+      return newState
+    })
+    .addCase(interactConversationReplyAsync.pending, (state, action) => {
+      const newState = state;
+      newState.status = 'pending';
+      return newState
+    })
+    .addCase(interactConversationReplyAsync.fulfilled, (state, action) => {
+      const newState = state;
+      const newConversationEntry = {
+        sender: action.payload.sender,
+        message: action.payload.message,
+      };
+      const newConversationUserReplyOptions = action.payload.userReplyOptions;
+      newState.value.conversationLog = [...state.value.conversationLog, newConversationEntry];
+      newState.value.conversationUserReplyOptions = newConversationUserReplyOptions;
+      newState.status = 'fulfilled';
+      return newState
+    })
+    .addCase(interactConversationReplyAsync.rejected, (state, action) => {
       const newState = state;
       newState.status = 'failed';
       return newState
@@ -45,7 +92,7 @@ export const speakingBotSlice = createSlice({
   }
 })
 
-export const { resetStatus } = speakingBotSlice.actions
+export const { resetStatus, pushUserReply } = speakingBotSlice.actions
 
 export const selectSpeakingBotState = (state: any) => state.speakingBot;
 

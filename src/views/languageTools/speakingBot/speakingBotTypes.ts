@@ -1,21 +1,14 @@
 export interface IConversationLogItem {
-  id: number;
   sender: string;
   message: string;
 }
 
 export interface ISpeakingBotState {
   value: {
-    initialGreeting: string;
-    conversationLog: IConversationLogItem[];
+    conversationLog: IConversationLogItem[],
+    conversationUserReplyOptions: string[],
   }
   status: 'idle' | 'pending' | 'fulfilled' | 'failed' | 'updated';
 }
 
-export const speakingBotInitialState: ISpeakingBotState = {
-  value: {
-    initialGreeting:  '',
-    conversationLog: [],
-  },
-  status: 'idle',
-};
+
