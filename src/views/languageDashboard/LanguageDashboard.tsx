@@ -37,7 +37,7 @@ export const LanguageDashboard = () => {
   
   useEffect(() => {
     if(!pickALanguageState.value.activeLearningLanguage){
-      navigate('/');
+      navigate('/pick-a-language');
     }
     if(pickALanguageState.value.activeLearningLanguageCode && typeof pickALanguageState.value.activeLearningLanguageStageId === 'number') {
       dispatch(getLanguagePackTopicsAsync({languageCode: pickALanguageState.value.activeLearningLanguageCode, stageId: pickALanguageState.value.activeLearningLanguageStageId}))

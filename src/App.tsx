@@ -9,6 +9,7 @@ import { LanguageLesson } from './views/languageLesson/LanguageLesson';
 import { ConversationBot } from './views/languageTools/conversationBot/ConversationBot';
 import { SpeakingBot } from './views/languageTools/speakingBot/SpeakingBot';
 import { LanguageTopicLesson } from './views/languageTopicLesson/LanguageTopicLesson';
+import { Login } from './views/login/Login';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
       <RouterContainer>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<PickALanguage />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/pick-a-language" element={<PickALanguage />} />
 
             <Route path="/language/:language" element={<LanguageDashboard />} />
             <Route path="/language/:language/topic/:topicSlug" element={<LanguageTopicLesson />} />
