@@ -45,8 +45,8 @@ export const QuickPickLanguage = () => {
       <ul className={styles.QuickPickLanguage_list}>
         {
           languageListOptions.map(language => (
-            <li key={language.value} className={styles.QuickPickLanguage_listItem} onClick={() => handleSelectLanguage(language.value)}>
-              <img src={determineLanguageIcon(language.value)} className={styles.QuickPickLanguage_listItem_icon} />
+            <li key={language.slug} className={styles.QuickPickLanguage_listItem} onClick={() => handleSelectLanguage(language.slug)}>
+              <img src={determineLanguageIcon(language.slug)} className={styles.QuickPickLanguage_listItem_icon} />
               {language.name}
             </li>
           ))

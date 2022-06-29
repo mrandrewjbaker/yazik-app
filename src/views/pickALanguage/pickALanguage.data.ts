@@ -1,7 +1,7 @@
 export const languageListOptions = [
-  { name: 'English', value: 'english' },
-  { name: 'French', value: 'french' },
-  { name: 'German', value: 'german' },
-  { name: 'Russian', value: 'russian' },
-  { name: 'Mandarin', value: 'mandarin' },
+  { name: 'English', slug: 'english', code: 'enus' },
+  { name: 'French', slug: 'french', code: 'fr' },
+  { name: 'German', slug: 'german', code: 'de' },
+  { name: 'Russian', slug: 'russian', code: 'ru' },
+  { name: 'Mandarin', slug: 'mandarin', code: 'zhcn' },
 ]  

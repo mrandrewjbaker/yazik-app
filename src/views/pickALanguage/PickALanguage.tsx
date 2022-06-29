@@ -10,30 +10,30 @@ import frenchIcon from '../../assets/images/languages/french.png';
 import germanIcon from '../../assets/images/languages/german.png';
 import russianIcon from '../../assets/images/languages/russian.png';
 import mandarinIcon from '../../assets/images/languages/mandarin.png';
-import { PickALanguage_SetActiveLearningLanguage, PickALanguage_SetActiveNativeLanguage } from './pickALanguage.slice';
+import { PickALanguage_SetActiveLearningLanguage, PickALanguage_SetActiveLearningLanguageCode, PickALanguage_SetActiveNativeLanguage } from './pickALanguage.slice';
 
 export const PickALanguage = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const handleSelectLanguage = (language: string) => {
-    dispatch(PickALanguage_SetActiveLearningLanguage(language.toLowerCase()));
+  const handleSelectLanguage = (languageCode: string, languageSlug: string,) => {
+    dispatch(PickALanguage_SetActiveLearningLanguageCode(languageCode));
+    dispatch(PickALanguage_SetActiveLearningLanguage(languageSlug));
     dispatch(PickALanguage_SetActiveNativeLanguage('english'));
-    navigate(`/language/${language.toLowerCase()}`);
+    navigate(`/language/${languageSlug.toLowerCase()}`);
   }
 
-  const determineLanguageIcon = (language: string) => {
-    console.log(language);
-    switch (language) {
-      case 'english':
+  const determineLanguageIcon = (languageCode: string) => {
+    switch (languageCode) {
+      case 'enus':
         return englishIcon;
-      case 'french':
+      case 'fr':
         return frenchIcon;
-      case 'german':
+      case 'de':
         return germanIcon;
-      case 'russian':
+      case 'ru':
         return russianIcon;
-      case 'mandarin':
+      case 'zhcn':
         return mandarinIcon;
       default:
         return pickALanguageIcon;
@@ -49,8 +49,8 @@ export const PickALanguage = () => {
       <ul className={style.LanguagePickerBlocks}>
       {
         languageListOptions.map((language) => (
-          <li key={language.value} className={style.LanguagePickerBlock} onClick={() => handleSelectLanguage(language.value)}>
-            <img src={determineLanguageIcon(language.value)} /> <p>{language.name}</p>
+          <li key={language.slug} className={style.LanguagePickerBlock} onClick={() => handleSelectLanguage(language.code, language.slug)}>
+            <img src={determineLanguageIcon(language.code)} /> <p>{language.name}</p>
           </li>
         ))
       }

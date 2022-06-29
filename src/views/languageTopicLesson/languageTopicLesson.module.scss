@@ -1,0 +1,48 @@
+.languageTopicLesson {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .languageTopicLesson_content {
+    height: 100%;
+    width: 100%;
+  }
+
+  .languageTopicLesson_buttonRow {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    .languageTopicLesson_button {
+      width: 8rem;
+      height: 3rem;
+      border-radius: .35rem;
+      outline: none;
+      border: none;
+      background-color: #1f7643;
+      color: #fefefe;
+      font-size: 1.15rem;
+
+      .languageTopicLesson_button___text {
+        height: 100%;
+        width: 100%;
+        font-size: 1.15rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        
+        .languageTopicLesson_button___textIcon {
+          height: 100%;
+          width: 1.5rem;
+          margin-left: .25rem;
+          margin-right: .25rem;
+        }
+      }
+    }
+  }
+}

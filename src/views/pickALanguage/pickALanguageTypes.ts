@@ -1,4 +1,10 @@
-export interface ILanguageListOption {
+export interface IPickALanguageActiveLearningLanguagePackTopicStage {
+  stageId: number;
+  vocabulux: string[];
+}
+
+export interface IPickALanguageActiveLearningLanguagePackTopic {
   name: string;
-  value: string;
+  slug: string;
+  stages: IPickALanguageActiveLearningLanguagePackTopicStage[];
 }

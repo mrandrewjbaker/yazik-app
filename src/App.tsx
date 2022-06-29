@@ -8,7 +8,7 @@ import { LanguageDashboard } from './views/languageDashboard/LanguageDashboard';
 import { LanguageLesson } from './views/languageLesson/LanguageLesson';
 import { ConversationBot } from './views/languageTools/conversationBot/ConversationBot';
 import { SpeakingBot } from './views/languageTools/speakingBot/SpeakingBot';
-import { LanguageTopic } from './views/languageTopic/LanguageTopic';
+import { LanguageTopicLesson } from './views/languageTopicLesson/LanguageTopicLesson';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
             <Route path="/" element={<PickALanguage />} />
 
             <Route path="/language/:language" element={<LanguageDashboard />} />
-            <Route path="/language/:language/topic/:topicSlug" element={<LanguageTopic />} />
+            <Route path="/language/:language/topic/:topicSlug" element={<LanguageTopicLesson />} />
 
 
           </Routes>
