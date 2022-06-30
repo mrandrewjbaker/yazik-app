@@ -10,6 +10,7 @@ import { ConversationBot } from './views/languageTools/conversationBot/Conversat
 import { SpeakingBot } from './views/languageTools/speakingBot/SpeakingBot';
 import { LanguageTopicLesson } from './views/languageTopicLesson/LanguageTopicLesson';
 import { Login } from './views/login/Login';
+import { Register } from './views/register/Register';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/pick-a-language" element={<PickALanguage />} />
 
             <Route path="/language/:language" element={<LanguageDashboard />} />

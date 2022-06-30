@@ -9,20 +9,34 @@
     display: flex;
     flex-direction: column;
     width: 80%;
+    height: 100%;
 
     .LanguageDashboard_lessonSectionBlock {
       display: flex;
       flex-direction: row;
-      background-color: #5a5a5a;
+      background-color: #30aa71;
       border-radius: 0.35rem;
       margin-top: .5rem;
       margin-bottom: .5rem; 
       padding-top: 1rem;
       padding-bottom: 1rem;
+      height: 5rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-indent: 1rem;
 
       .LanguageDashboard_lessonSection___title {
-        font-size: 1rem;
       }
     }
+  }
+
+  .LanguageDashboard_toolBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    height: 4rem;
+    background-color: #096cd6;
+    border-radius: 0.35rem 0.35rem 0 0;
   }
 }

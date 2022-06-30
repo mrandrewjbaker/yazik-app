@@ -54,6 +54,8 @@ export const LanguageDashboard = () => {
           })
         }
       </div>
+      <div className={styles.LanguageDashboard_toolBar}>
+      </div>
     </div>
   )
 }
