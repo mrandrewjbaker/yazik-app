@@ -8,11 +8,13 @@ import germanIcon from '../../../../assets/images/languages/german.png';
 import russianIcon from '../../../../assets/images/languages/russian.png';
 import mandarinIcon from '../../../../assets/images/languages/mandarin.png';
 
-import styles from './quickPickLanguage.module.scss';
+import styles from './pickALanguagePopup.module.scss';
 import { PickALanguage_SetActiveLearningLanguage, PickALanguage_SetActiveNativeLanguage } from '../../../../views/pickALanguage/pickALanguage.slice';
+import { useNavigate } from 'react-router';
 
-export const QuickPickLanguage = () => {
+export const PickALanguagePopup = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const pickALanguageState = useAppSelector(state => state.pickALanguage);
 
@@ -41,16 +43,19 @@ export const QuickPickLanguage = () => {
 
 
   return (
-    <div className={styles.QuickPickLanguage}>
-      <ul className={styles.QuickPickLanguage_list}>
+    <div className={styles.PickALanguagePopup}>
+      <ul className={styles.PickALanguagePopup_list}>
         {
           languageListOptions.map(language => (
-            <li key={language.slug} className={styles.QuickPickLanguage_listItem} onClick={() => handleSelectLanguage(language.slug)}>
-              <img src={determineLanguageIcon(language.slug)} className={styles.QuickPickLanguage_listItem_icon} />
+            <li key={language.slug} className={styles.PickALanguagePopup_listItem} onClick={() => handleSelectLanguage(language.slug)}>
+              <img src={determineLanguageIcon(language.slug)} className={styles.PickALanguagePopup_listItem_icon} />
               {language.name}
             </li>
           ))
         }
+        <li className={styles.PickALanguagePopup_listItem} onClick={() => navigate('/language-administrator')}>
+          <span>Language Administrator</span>
+        </li>
       </ul>
     </div>
   )

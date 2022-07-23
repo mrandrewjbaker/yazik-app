@@ -18,7 +18,7 @@ export interface IPickALanguageState {
   status: 'idle' | 'pending' | 'fulfilled' | 'rejected',
 }
 
-const initialState = {
+const initialState: IPickALanguageState = {
   value: {
     activeLearningLanguage: null,
     activeLearningLanguageCode: null,
@@ -28,11 +28,11 @@ const initialState = {
     activeNativeLanguageCode: null,
   },
   status: 'idle',
-} as IPickALanguageState
+}
 
 
 export const getLanguagePackTopicsAsync = createAsyncThunk(
-  'speakingBot/interactInitialConversation',
+  'PickALanguage/LanguagePackTopics',
   async ({languageCode, stageId} : {languageCode: string, stageId: number}) => {
     const response = await getLanguagePackTopics(languageCode, stageId);
     return response;

@@ -1,0 +1,23 @@
+.LanguageAdministratorShortcutIcon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+
+
+  .LanguageAdministratorShortcutIcon_container {
+    height: 100%;
+
+    .LanguageAdministratorShortcutIcon_icon {
+      height: 90%;
+      width: 92%;
+      border-radius: 100%;
+      border: 2px solid #fefefe;
+
+    }
+  }
+}

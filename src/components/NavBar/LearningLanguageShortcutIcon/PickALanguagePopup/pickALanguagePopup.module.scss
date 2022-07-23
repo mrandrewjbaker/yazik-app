@@ -1,22 +1,22 @@
-.QuickPickLanguage {
+.PickALanguagePopup {
   display: flex;
   height: auto;
   padding-bottom: 1rem;
   width: 20rem;
-  margin-left: 12%;
+  margin-left: 5vw;
   background-color: #e7e7e7;
   z-index: 100;
   position: absolute;
   border-radius: 1rem;
 
-  .QuickPickLanguage_list {
+  .PickALanguagePopup_list {
     text-decoration: none;
     list-style: none;
     margin: 0;
     padding: 0;
     width: 100%;
 
-    .QuickPickLanguage_listItem {
+    .PickALanguagePopup_listItem {
       width: 100%;
       text-align: left;
       height: 3rem;
@@ -40,7 +40,7 @@
       }
 
 
-      .QuickPickLanguage_listItem_icon {
+      .PickALanguagePopup_listItem_icon {
         width: 2rem;
         height: 2rem;
         margin-left: 2%;

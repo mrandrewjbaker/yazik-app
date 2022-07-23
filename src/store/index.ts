@@ -2,11 +2,14 @@ import { configureStore } from '@reduxjs/toolkit'
 import SideMenuReducers from '../components/SideMenu/SideMenu.slice';
 import pickALanguageReducers from '../views/pickALanguage/pickALanguage.slice';
 import speakingBotReducers from '../views/languageTools/speakingBot/speakingBot.slice';
+import userDataReducers from '../views/login/login.slice';
+
 const store = configureStore({
   reducer: {
     SideMenu: SideMenuReducers,
     pickALanguage: pickALanguageReducers,
     speakingBot: speakingBotReducers,
+    userData: userDataReducers,
   },
 })
 

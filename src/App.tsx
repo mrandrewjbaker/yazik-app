@@ -11,17 +11,23 @@ import { SpeakingBot } from './views/languageTools/speakingBot/SpeakingBot';
 import { LanguageTopicLesson } from './views/languageTopicLesson/LanguageTopicLesson';
 import { Login } from './views/login/Login';
 import { Register } from './views/register/Register';
+import { Dashboard } from './views/dashboard/Dashboard';
+import { LanguageAdministrator } from './views/languageAdminstrator/LanguageAdministrator';
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
       <RouterContainer>
         <BrowserRouter>
+          <NavBar />
           <Routes>
             <Route path="/" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+
             <Route path="/register" element={<Register />} />
             <Route path="/pick-a-language" element={<PickALanguage />} />
+
+            <Route path="/language-administrator" element={<LanguageAdministrator />} />
 
             <Route path="/language/:language" element={<LanguageDashboard />} />
             <Route path="/language/:language/topic/:topicSlug" element={<LanguageTopicLesson />} />

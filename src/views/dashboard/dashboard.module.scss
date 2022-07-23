@@ -1,0 +1,30 @@
+.Dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  .Dashboard_continueOptionBlocks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+
+    .Dashboard_continueOptionBlock {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 90%;
+      margin-left: 5%;
+      height: 3rem;
+      background-color: rgb(25, 139, 167);
+      margin-bottom: 1.5rem;
+      border-radius: 0.35rem;
+    }
+  }
+}

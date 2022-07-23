@@ -2,15 +2,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   font-family: 'Roboto', sans-serif;
   font-size: 1.5rem;
-  color: #333;
+  color: rgb(255, 255, 255);
   text-align: center;
 
   .PickALanguage_iconContainer {
-    width: 175px;
+    width: 150px;
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
@@ -29,7 +29,8 @@
     display: flex;
     flex-direction: column;
     list-style-type: none;
-    height: 50vh;
+    height: 100%;
+    width: 100%;
     padding: 0;
     grid-gap: 1rem;
     overflow-y: scroll;
@@ -41,7 +42,7 @@
     .LanguagePickerBlock {
       display: flex;
       flex-direction: row;
-      width: 25rem;
+      width: 100%;
       background-color: rgb(36, 103, 246);
       border-radius: .45rem;
       box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
@@ -59,6 +60,28 @@
         flex: 6;
         color: #fefefe;
       }
+    }
+
+    .LanguagePickerBlock_marker {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      background-color: #2e3950;
+      border-radius: .45rem;
+      box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .LanguagePickerBlock_markerButton {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      background-color: #61379f;
+      border-radius: .45rem;
+      box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+      justify-content: center;
+      align-items: center;
     }
   }
 }

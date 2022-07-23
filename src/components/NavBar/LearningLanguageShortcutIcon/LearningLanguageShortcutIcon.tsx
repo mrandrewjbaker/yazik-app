@@ -6,23 +6,23 @@ import russianFlag from '../../../assets/images/languages/russian.png';
 import mandarinFlag from '../../../assets/images/languages/mandarin.png';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { useEffect, useState } from 'react';
-import styles from './learningLanguageFlag.module.scss';
-import { QuickPickLanguage } from './QuickPickLanguage/QuickPickLanguage';
+import styles from './learningLanguageShortcutIcon.module.scss';
+import { PickALanguagePopup } from './PickALanguagePopup/PickALanguagePopup';
 
 
-export const LearningLanguageFlag = () => {
+export const LearningLanguageShortcutIcon = () => {
   const dispatch = useAppDispatch();
   const pickALanguageState = useAppSelector(state => state.pickALanguage);
   const [activeLearningLanguage, setActiveLearningLanguage] = useState<string | null>(null);
   const [activeNativeLanguage, setActiveNativeLanguage] = useState<string | null>(null);
-  const [quickPickLanguageOpen, setQuickPickLanguageOpen] = useState<boolean>(false);
+  const [quickPickLanguageOpen, setPickALanguagePopupOpen] = useState<boolean>(false);
 
   useEffect(() => {
     setActiveLearningLanguage(pickALanguageState.value.activeLearningLanguage);
     setActiveNativeLanguage(pickALanguageState.value.activeNativeLanguage);
   }, [pickALanguageState])
 
-  const determineLearningLanguageFlag = () => {
+  const determineLearningLanguageShortcutIcon = () => {
     switch (activeLearningLanguage) {
       case 'english':
         return englishFlag;
@@ -39,19 +39,19 @@ export const LearningLanguageFlag = () => {
     }
   }
 
-  const toggleQuickPickLanguage = () => {
-    console.log('clicked toggleQuickPickLanguage');
-    setQuickPickLanguageOpen(!quickPickLanguageOpen);
+  const togglePickALanguagePopup = () => {
+    console.log('clicked togglePickALanguagePopup');
+    setPickALanguagePopupOpen(!quickPickLanguageOpen);
   }
 
   return (
-    <div className={styles.LearningLanguageFlag}>
-      <div className={styles.LearningLanguageFlag_iconContainer}>
-        <img onClick={() => toggleQuickPickLanguage()} className={styles.LearningLanguageFlag_icon } src={determineLearningLanguageFlag()} />
+    <div className={styles.LearningLanguageShortcutIcon}>
+      <div className={styles.LearningLanguageShortcutIcon_iconContainer}>
+        <img onClick={() => togglePickALanguagePopup()} className={styles.LearningLanguageShortcutIcon_icon } src={determineLearningLanguageShortcutIcon()} />
       </div>
       {
         quickPickLanguageOpen && (
-          <QuickPickLanguage /> 
+          <PickALanguagePopup /> 
         )
       }
     </div>

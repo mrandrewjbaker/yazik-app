@@ -47,13 +47,22 @@ export const PickALanguage = () => {
       </div>
       <h1 className={style.LanguagePickerHeader}>Pick a Language</h1>
       <ul className={style.LanguagePickerBlocks}>
-      {
-        languageListOptions.map((language) => (
-          <li key={language.slug} className={style.LanguagePickerBlock} onClick={() => handleSelectLanguage(language.code, language.slug)}>
-            <img src={determineLanguageIcon(language.code)} /> <p>{language.name}</p>
-          </li>
-        ))
-      }
+        {
+          languageListOptions.map((language) => (
+            <li key={language.slug} className={style.LanguagePickerBlock} onClick={() => handleSelectLanguage(language.code, language.slug)}>
+              <img src={determineLanguageIcon(language.code)} /> <p>{language.name}</p>
+            </li>
+          ))
+        }
+        <li className={style.LanguagePickerBlock_marker}>
+          <p>Beta Languages</p>
+        </li>
+        <li className={style.LanguagePickerBlock_marker}>
+          <p>Proposed Languages</p>
+        </li>
+        <li className={style.LanguagePickerBlock_markerButton}>
+          <p>Propose a Language</p>
+        </li>
       </ul>
     </div>
   )

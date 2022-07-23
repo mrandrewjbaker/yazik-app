@@ -1,0 +1,26 @@
+.UserProfileShortcutIcon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  justify-self: flex-end;
+  height: 3.5rem;
+  width: 3.5rem;
+  margin-right: .5rem;
+  margin-left: auto;
+
+  .UserProfileShortcutIcon_container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    width: 100%;
+
+    .UserProfileShortcutIcon_icon {
+      height: calc(85% - 4px);
+      width: calc(85% - 4px) ;
+      border-radius: 100%;
+      border: 2px solid #fefefe;
+    }
+  }
+}
