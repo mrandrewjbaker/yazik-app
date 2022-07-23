@@ -11,11 +11,14 @@ const store = configureStore({
     speakingBot: speakingBotReducers,
     userData: userDataReducers,
   },
-})
+  devTools: process.env.NODE_ENV === "development",
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({}).concat([]),
+});
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type IRootState = ReturnType<typeof store.getState>
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type IAppDispatch = typeof store.dispatch
+export type IRootState = ReturnType<typeof store.getState>;
+export type IAppDispatch = typeof store.dispatch;
+
+export const useAppDispatch = () => useDispatch<IAppDispatch>();
+export const useAppSelector: TypedUseSelectorHook<IRootState> = useSelector;
 
 export default store;

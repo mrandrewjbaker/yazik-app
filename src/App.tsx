@@ -30,9 +30,10 @@ function App() {
             <Route path="/language-administrator" element={<LanguageAdministrator />} />
 
             <Route path="/language/:language" element={<LanguageDashboard />} />
-            <Route path="/language/:language/topic/:topicSlug" element={<LanguageTopicLesson />} />
-
-
+            <Route
+              path="/language/:language/topic/:topicSlug"
+              element={<LanguageTopicLesson />}
+            />
           </Routes>
         </BrowserRouter>
       </RouterContainer>
